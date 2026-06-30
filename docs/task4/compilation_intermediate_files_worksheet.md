@@ -168,7 +168,7 @@ The flags (optional) are hints:
   **Note:** `grep` command is used to search. Check it's man page using `man grep` command. Check about the option `-n` it's man page.
   
 3. Find the last `# N "hello.c" 2` marker in `hello.i` (the one just before
-   `main`). Edit it by hand — change it to `# 100 "WRONG.c"`. Recompile the
+   `main`). Edit it by hand — change it to `# 100 "AIK.c"`. Recompile the
    edited `.i` and read the error location.
 
 ### c. Observation (what you should find)
@@ -178,8 +178,8 @@ The flags (optional) are hints:
   error message **still says `hello.c:5`** — not line 831. The compiler used the
   line markers to translate the position back.
 - In step 3, after you lie in the marker, the compiler *believes you*: the error
-  now reads something like `WRONG.c:103:...`. Count the physical lines from your
-  faked `# 100 "WRONG.c"` marker down to the bug and you'll see the number lines
+  now reads something like `AIK.c:103:...`. Count the physical lines from your
+  faked `# 100 "AIK.c"` marker down to the bug and you'll see the number lines
   up exactly. The compiler trusts the marker completely.
 
 **Takeaway to say out loud:** the preprocessor plants signposts
