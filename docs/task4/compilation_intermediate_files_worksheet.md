@@ -57,7 +57,7 @@ Example files to create:
 ```c
 /* hello.c */
 #include <stdio.h>
-int main(void)
+int main()
 {
     printf("Hello\n");
     return 0;
@@ -70,12 +70,12 @@ int add(int a, int b);
 
 /* use.c */
 #include "util.h"
-int main(void) { return add(1, 2); }
+int main() { return add(1, 2); }
 ```
 
 ```c
 /* bare.c  — no includes at all */
-int main(void) { return 0; }
+int main() { return 0; }
 ```
 
 ### b. Task
@@ -85,6 +85,7 @@ int main(void) { return 0; }
    clang -E hello.c -o hello.i
    wc -l hello.c hello.i
    ```
+   *Note:* `wc` command is used to count words. use `man wc` command and write down what it does. Check about the option `-l` in it's man page.
 2. Do the same for `use.c` and `bare.c`. Line up the three before/after counts.
 3. In `hello.i`, find the line where `printf` is actually declared:
    ```
@@ -164,6 +165,8 @@ The flags (optional) are hints:
    grep -n "printf" hello.i        # note the PHYSICAL line in hello.i
    clang -c hello.i
    ```
+  *Note:* `grep` command is used to search. use `man grep` command and write down what it does. Check about the option `-n` it's man page.
+  
 3. Find the last `# N "hello.c" 2` marker in `hello.i` (the one just before
    `main`). Edit it by hand — change it to `# 100 "WRONG.c"`. Recompile the
    edited `.i` and read the error location.
@@ -224,6 +227,7 @@ int square(int n) { return n * n; }
    llvm-dis square.bc -o square_from_bc.ll
    cat square_from_bc.ll
    ```
+  *Note:* Command `llvm-dis` is used to *dis*assemble llvm bitcode. Command `file` determines file type. Use `man llvm-dis` and `man file`, to check their man pages. 
 
 ### c. Observation (what you should find)
 
