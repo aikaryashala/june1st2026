@@ -193,7 +193,7 @@ Dump every intermediate at once and list what you got:
 
 ```
 clang --save-temps -c square.c
-ls -1 square.*
+ls -l square.*
 ```
 
 You will see `square.i`, `square.bc`, `square.s`, `square.o`. The `.bc` sits
